@@ -1,0 +1,30 @@
+h1{
+    background-color: rgb(148, 228, 255);
+    font-family: cursive;
+    color: rgb(9, 93, 107);
+}
+body{
+  
+        background-image: url(large-group-cats-dogs-looking-camera-blue_191971-28630.avif) ;
+        background-size: cover;
+        background-repeat: no-repeat, repeat;
+        padding: 8%;
+}   
+      
+ 
+
+ 
+
+ }
+    
+
+
+  label{
+    text-shadow: 3px 3px #000000;
+   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-weight: bolder;
+   font-size: larger;
+    color: rgb(255, 243, 82);
+  }
+  
+  
