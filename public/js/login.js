@@ -10,8 +10,9 @@ async function login_handler(event) {
             body: JSON.stringify({ email, password }),
             headers: { 'Content-Type': 'application/json' }
         });
-        console.log(response);
         if (response.ok) {
+            const data = await response.json()
+            localStorage.setItem('sid',JSON.stringify(data.user.sid))
             document.location.replace('/');
         } else {
             $('#invalid_cred').show();

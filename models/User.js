@@ -39,6 +39,10 @@ User.init(
                 len: [8],
             },
         },
+        sid: {
+            type: DataTypes.STRING,
+            allowNull:false
+        }
 
     },
     {
