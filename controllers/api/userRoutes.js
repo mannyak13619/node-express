@@ -2,7 +2,8 @@ const router = require("express").Router();
 const { User } = require("../../models");
 const withAuth = require("../../utils/auth");
 const bcrypt = require("bcrypt");
-const moment = require('moment')
+const moment = require("moment");
+const sequelize = require("../../config/connection");
 
 // Gets current user
 router.get("/", withAuth, async (req, res) => {
@@ -17,7 +18,7 @@ router.post("/", async (req, res) => {
       lastName: req.body.lastName,
       email: req.body.email,
       password: req.body.password,
-      sid: req.sessionID
+      sid: req.sessionID,
     });
     req.session.user_id = userData.id;
     req.session.logged_in = true;
@@ -47,15 +48,14 @@ router.post("/login", async (req, res) => {
         userData.password
       );
       if (validPassword) {
-        User.update({last_login: moment},{where:  {id: userData.id }})
         req.session.user_id = userData.id;
         req.session.logged_in = true;
         req.session.save(() => {
-          const response = res.json({
+          const response = {
             success: true,
             user: userData,
             message: "You are now logged in!",
-          });
+          };
           res.send(response)
         });
       } else {
@@ -71,7 +71,6 @@ router.post("/login", async (req, res) => {
       });
     }
   } catch (e) {
-    console.log();
     res.status(500).json(e);
   }
 });
@@ -86,8 +85,15 @@ router.post("/logout", withAuth, (req, res) => {
   }
 });
 
-router.get('/session/:sid',  (req,res)=>{
-    console.log(req.query)
-})
+router.get("/session", async (req, res) => {
+  const sid = req.query.sid;
+  const sessionData = await sequelize.query(
+    `Select createdAt from Sessions where sid = ${sid}`,
+    {
+      type: sequelize.QueryTypes.SELECT,
+    }
+  );
+  res.send(sessionData)
+});
 
 module.exports = router;
