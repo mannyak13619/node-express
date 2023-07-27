@@ -17,7 +17,6 @@ try {
         port: 3306,
         operationsAliases: false,
         logging: function (e) {
-          console.log(e);
         },
         pool: {
           max: 5,
