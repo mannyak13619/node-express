@@ -17,12 +17,12 @@ h2 {
 }
 
 #my-pet-btn, #docs-btn, #logout_btn  {
-    background-color: #B1AFFF;
+    background-color: dodgerblue;
     color: white;
 }
 
 #home {
-    background-color: #B1AFFF;
+    background-color: dodgerblue;
     float: left;
 }
 
