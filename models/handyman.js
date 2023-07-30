@@ -1,11 +1,11 @@
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
 
-class Pet extends Model { };
+class handyman extends Model { };
 
-Pet.init(
+handyman.init(
   {
-    pet_id: {
+    handyman_id: {
       type: DataTypes.INTEGER,
       allowNull: false,
       primaryKey: true,
@@ -14,10 +14,10 @@ Pet.init(
     name: {
       type: DataTypes.STRING,
     },
-    species: {
+    trade: {
       type: DataTypes.STRING,
     },
-    breed: {
+    job: {
       type: DataTypes.STRING,
     },
     birthdate: {

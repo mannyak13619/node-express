@@ -21,8 +21,8 @@ File.init(
     owner_id: {
         type: DataTypes.INTEGER,
         references: {
-            model: 'pet',
-            key: 'pet_id'
+            model: 'handyman',
+            key: 'handyman_id'
         },
     },
   },

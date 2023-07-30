@@ -1,20 +1,20 @@
 [
     {
-        "firstName": "Matthew",
-        "lastName": "Baty",
-        "email": "mattbaty@outlook.com",
+        "firstName": "emmanuel",
+        "lastName": "g",
+        "email": "emmanuelg@outlook.com",
         "password": "password"
     },
     {
-        "firstName": "Jim",
+        "firstName": "jhon",
         "lastName": "Brown",
         "email": "jimbrown@outlook.com",
         "password": "password"
     },
     {
-        "firstName": "Tom",
-        "lastName": "Smith",
-        "email": "tomsmith@outlook.com",
+        "firstName": "Tommy",
+        "lastName": "jhonson",
+        "email": "tommyjhonson@outlook.com",
         "password": "password"
     }
 ]

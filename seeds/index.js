@@ -1,7 +1,7 @@
 const userData = require('./userData.json');
-const petData = require('./petData.json');
+const handymanData = require('./handymanData.json');
 
-const { Pet, User } = require('../models');
+const { handyman, User } = require('../models');
 
 const sequelize = require('../config/connection');
 
@@ -15,13 +15,13 @@ const seedDatabase = async () => {
     });
     console.log('\n----- USERS SEEDED -----\n');
 
-    for (const pet of petData) {
-        await Pet.create({
-            ...pet,
+    for (const handyman of handymanData) {
+        await handyman.create({
+            ...handyman,
             user_id: users[Math.floor(Math.random() * users.length)].id,
         });
     }
-    console.log('\n----- PETS SEEDED -----\n');
+    console.log('\n----- HANDYMAN SEEDED -----\n');
 
     process.exit(0);
 };

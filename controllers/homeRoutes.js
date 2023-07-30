@@ -1,13 +1,13 @@
 const ImageKit = require("imagekit");
 const router = require('express').Router();
-const { Pet, User, File } = require('../models');
+const { handyman, User, File } = require('../models');
 const withAuth = require('../utils/auth');
 require('dotenv').config();
 
 
 router.get('/', withAuth, async (req, res) => {
     try {
-        const petData = await Pet.findAll({
+        const handymanData = await handyman.findAll({
             include: [
                 {
                     model: User,
@@ -19,10 +19,10 @@ router.get('/', withAuth, async (req, res) => {
             ],
         });
 
-        const pets = petData.map((pet) => pet.get({ plain: true }));
+        const handyman = handymanData.map((handyman) => handyman.get({ plain: true }));
 
         res.render('landing', {
-            pets,
+            handyman,
             logged_in: req.session.logged_in
         });
     } catch (err) {
@@ -30,9 +30,9 @@ router.get('/', withAuth, async (req, res) => {
     }
 });
 
-router.get('/pet/:id', withAuth, async (req, res) => {
+router.get('/handyman/:id', withAuth, async (req, res) => {
     try {
-        const petData = await Pet.findByPk(req.params.id, {
+        const handymanData = await Pet.findByPk(req.params.id, {
             include: [
                 {
                     model: File
@@ -40,15 +40,15 @@ router.get('/pet/:id', withAuth, async (req, res) => {
             ],
         });
 
-        const pet = petData.get({ plain: true });
+        const handyman = handymanData.get({ plain: true });
 
         let img_path = '';
-        if (pet.files.length > 1) {
-            img_path = pet.files[0].path;
+        if (handyman.files.length > 1) {
+            img_path = handyman.files[0].path;
         }
 
-        res.render('pet', {
-            ...pet,
+        res.render('handyman', {
+            ...handyman,
             img_path: img_path,
             logged_in: req.session.logged_in
         });
@@ -59,17 +59,17 @@ router.get('/pet/:id', withAuth, async (req, res) => {
 });
 
 // locked with auth to prevent viewing a users profile without being logged in
-router.get('/pets', withAuth, async (req, res) => {
+router.get('/handyman', withAuth, async (req, res) => {
     try {
         // Find the logged in user based on the session ID
         const userData = await User.findByPk(req.session.user_id, {
             attributes: { exclude: ['password'] },
-            include: [{ model: Pet }],
+            include: [{ model: handyman }],
         });
 
         const user = userData.get({ plain: true });
 
-        res.render('pets', {
+        res.render('handyman', {
             ...user,
             logged_in: true
         });

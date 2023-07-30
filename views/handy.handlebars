@@ -1,0 +1,11 @@
+<div class="mb-3">
+    {{#each handyman as |handyman| }}
+    <button class="mx-3" onclick="window.location.href='/pet/{{handyman.handyman_id}}';">{{handyman.name}}</button>
+    <img src/plumbing>
+    <span>leaks,fixtures,clogges</span>
+    <img src/carpenter>
+    <span>decks,trim,framing</span>
+    <img src/electrical>
+    <span>outlets switches and fixtures</span>
+    {{/each}}
+</div>

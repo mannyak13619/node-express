@@ -1,2 +1,2 @@
-DROP DATABASE IF EXISTS petfolio_db;
-CREATE DATABASE petfolio_db;
+DROP DATABASE IF EXISTS handyman_db;
+CREATE DATABASE handyman_db;

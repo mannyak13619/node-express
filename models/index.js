@@ -1,14 +1,14 @@
 const User = require('./User');
-const Pet = require('./Pet');
+const handyman = require('./hanyman');
 const File = require('./File');
 
-User.hasMany(Pet, {
+User.hasMany(handyman, {
     foreignKey: 'user_id'
 });
 
-Pet.belongsTo(User);
+handyman.belongsTo(User);
 
-Pet.hasMany(File, {
+handyman.hasMany(File, {
     foreignKey: 'owner_id'
 });
 
@@ -16,6 +16,6 @@ File.belongsTo(Pet);
 
 module.exports = {
     User,
-    Pet,
+    handyman,
     File
 }

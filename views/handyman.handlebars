@@ -1,6 +1,6 @@
 <div class="mb-1">
     <button id="home" onclick="window.location.href='/';">Home</button>
-    <h2 id="my-pet">TYPE OF WORK</h2>
+    <h2 id="my-handyman">TYPE OF WORK</h2>
     <div class="card" style="width: 18rem; display: inline-block;">
         <img src="css/plumbing.jpeg" class="card-img-top mb-2" alt="plumbing img" id="pet-img">
         <section id="static-section">
@@ -9,10 +9,10 @@
                     <h3 type="name" id="name_form">{{name}}</h1>
                 </li>
                 <li>
-                    <h3 type="species" id="species_form">{{species}}</h1>
+                    <h3 type="trade" id="trade_form">{{species}}</h1>
                 </li>
                 <li>
-                    <h3 type="breed" id="breed_form">{{breed}}</h1>
+                    <h3 type="job" id="job_form">{{breed}}</h1>
                 </li>
                 <li>
                     <h3 type="birthdate" id="birthdate_form">{{format_date birthdate}}</h1>
@@ -31,9 +31,9 @@
             <ul class="list-group mx-2">
 
                 <li><input type="name" id="name_form" class="form-control form-control-lg" placeholder="Name" /> </li>
-                <li><input type="species" id="species_form" class="form-control form-control-lg"
-                        placeholder="Species" /> </li>
-                <li><input type="breed" id="breed_form" class="form-control form-control-lg" placeholder="Breed" />
+                <li><input type="trade" id="trade_form" class="form-control form-control-lg"
+                        placeholder="trade" /> </li>
+                <li><input type="job" id="job_form" class="form-control form-control-lg" placeholder="job" />
                 </li>
                 <li><input type="birthdate" id="birthdate_form" class="form-control form-control-lg"
                         placeholder="Birthdate" /> </li>
@@ -54,4 +54,4 @@
     </div>
 </div>
 
-<script type="module" src="/js/pet.js"></script>
+<script type="module" src="/js/handyman.js"></script>
